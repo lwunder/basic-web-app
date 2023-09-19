@@ -31,5 +31,12 @@ export default function QueryProcessor(query: string): string {
     return String(max);
   }
 
+  else if (query.includes("multiplied")) {
+    query = query.substring(0, query.length-1);
+    var words = query.split(" ");
+    var product = parseInt(words[2]) * parseInt(words[5])
+    return String(product);
+  }
+
   return "";
 }

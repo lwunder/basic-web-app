@@ -29,4 +29,10 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe("Alice");
     });
+
+    test('should return product', () => {
+        const query = "What is 26 multiplied by 8?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("208");
+    });
 });
