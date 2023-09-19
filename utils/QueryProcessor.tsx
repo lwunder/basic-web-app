@@ -12,14 +12,12 @@ export default function QueryProcessor(query: string): string {
   else if (query.toLowerCase().includes("name")) {
     return "Alice";
   }
-
   else if (query.includes("plus")) {
     query = query.substring(0, query.length-1);
     var words = query.split(" ");
     var sum = parseInt(words[2]) + parseInt(words[4])
     return String(sum);
   }
-
   else if (query.includes("largest")) {
     query = query.substring(0, query.length-1);
     var words = query.split(":");
@@ -30,13 +28,23 @@ export default function QueryProcessor(query: string): string {
     }
     return String(max);
   }
-
   else if (query.includes("multiplied")) {
     query = query.substring(0, query.length-1);
     var words = query.split(" ");
     var product = parseInt(words[2]) * parseInt(words[5])
     return String(product);
   }
-
+  else if (query.includes("minus")) {
+    query = query.substring(0, query.length-1);
+    var words = query.split(" ");
+    var diff = parseInt(words[2]) - parseInt(words[4])
+    return String(diff);
+  }
+  // else if (query.includes("primes")) {
+  //   query = query.substring(0, query.length-1);
+  //   var words = query.split(" ");
+  //   var diff = parseInt(words[2]) - parseInt(words[4])
+  //   return String(diff);
+  // }
   return "";
 }
