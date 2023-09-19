@@ -1,3 +1,14 @@
+function isPrime(n: number) : boolean {
+  for (let i = 0; i < n / 2 + 1; i++) {
+    if (n % i == 0) {
+      console.log("False");
+      return false;
+    }
+  }
+  console.log("True");
+  return true;
+}
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -40,11 +51,23 @@ export default function QueryProcessor(query: string): string {
     var diff = parseInt(words[2]) - parseInt(words[4])
     return String(diff);
   }
-  // else if (query.includes("primes")) {
-  //   query = query.substring(0, query.length-1);
-  //   var words = query.split(" ");
-  //   var diff = parseInt(words[2]) - parseInt(words[4])
-  //   return String(diff);
-  // }
+  else if (query.includes("primes")) {
+    query = query.substring(0, query.length-1);
+    var words = query.split(": ");
+    var numbers = words[1].split(", ");
+    var primes = [];
+    for (var num of numbers) {
+      if (isPrime(parseInt(num))) {
+        primes.push(num);
+      }
+    }
+    return primes.join(", ");
+  }
+  else if (query.includes("power")) {
+    query = query.substring(0, query.length-1);
+    var words = query.split(" ");
+    var power = parseInt(words[2]) ** parseInt(words[7])
+    return String(power);
+  }
   return "";
 }
