@@ -16,7 +16,7 @@ export default function QueryProcessor(query: string): string {
   else if (query.includes("plus")) {
     query = query.substring(0, query.length-1);
     var words = query.split(" ");
-    var sum = parseInt(words[2]) + parseInt(words[-1])
+    var sum = parseInt(words[2]) + parseInt(words[4])
     return String(sum);
   }
 
